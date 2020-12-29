@@ -1,16 +1,18 @@
 const allConstruct = (target, wordBank) => {
-  if (target === "") return [[]];
-  let result = [];
+  const table = Array(target.length + 1)
+    .fill()
+    .map(() => []);
+  table[0] = [[]];
 
-  for (let word of wordBank) {
-    if (target.indexOf(word) === 0) {
-      const suffix = target.slice(word.length);
-      const suffixWays = allConstruct(suffix, wordBank);
-      const targetWays = suffixWays.map((way) => [word, ...way]);
-      result.push(...targetWays);
+  for (let i = 0; i <= target.length; i++) {
+    for (let word of wordBank) {
+      if (target.slice(i, i + word.length) === word) {
+        const newCombinations = table[i].map((subArray) => [...subArray, word]);
+        table[i + word.length].push(...newCombinations);
+      }
     }
   }
-  return result;
+  return table[target.length];
 };
 
 console.log(allConstruct("purple", ["purp", "p", "ur", "le", "purpl"]));
@@ -31,7 +33,7 @@ console.log(
   allConstruct("skateboard", ["bo", "rd", "ate", "t", "ska", "sk", "boar"])
 );
 //[]
-
+/* this trye to create huge array and stack exceed eror occured.
 console.log(
   allConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", [
     "e",
@@ -42,6 +44,7 @@ console.log(
     "eeeeee",
   ])
 ); //0
+*/
 
 /*
 Write a function 'allConstruct(target, wordBank)' that accepts a target string and an array of string
@@ -69,22 +72,12 @@ allConstruct(abcdef, [ab, abc, cd, def, abcd, ef, c])
 allConstruct(hello, [cat, dog, mouse]) ->[]
 allConstruct('', [cat, dog, mouse]) ->[[]]
 
-lets draw tree;
-
-allConstruct(abcdef, [ab, abc, cd, def, abcd, ef, c])
-
-                                                abcdef
-
-              cdef(abcdef-ab)               def(abcdef-abc)          ef(abcdef-abcd)
-
-       ef(cdefcd)       def(cdef-c)          ..(def-def)               ..(ef-ef)
-
-       ..(ef-ef)        ..(def-def)
 
 memoized complexity:
 
 m : target.length
 n : wordbank.length
-time: O(n^m * m)
-space: O(m^2)
+time: ~O(n^m)
+space: ~O(m)
+
 */

@@ -38,4 +38,10 @@ let's look at the tree:
                         
                         1(4-3)       0(4-4)         0(3-3)
 
+complexity:
+m : targetSum
+n = array length
+
+time : O(n^m)
+space : O(m)
 */

@@ -35,4 +35,8 @@ times complexity is decrease dramatically. some tree branches don't execute.
 
 we can achieve this with memoization
 if we use memoization every number only once calculated
+
+fib memoized complexity :
+time : O(2^n)
+space : O(n?)
 */
