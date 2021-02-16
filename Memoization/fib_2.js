@@ -5,12 +5,10 @@ const fib = (n, memo = {}) => {
   return memo[n];
 };
 
-//small number's fibonacci result not take much
 console.log(fib(6));
 console.log(fib(7));
 console.log(fib(8));
 
-//but number is big,  this solution need very long time because exponantial time complexity
 console.log(fib(50));
 
 /*

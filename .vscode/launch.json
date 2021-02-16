@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/canSum.js"
+            "program": "${workspaceFolder}/LongestCommonSubsequence_2.js"
         }
     ]
 }
