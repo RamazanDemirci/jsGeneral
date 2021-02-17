@@ -15,9 +15,9 @@ const toDecimal = (bits = []) => {
 //     target number pozitif and current index is odd then sign is -1
 //     oterwise sign zero, that means don't anything iterate next index
 //#3 : calculate current index value.
-//#4 : sign the value cause aritmetic operator is static and we change the value
+//#4 : sign the value cause aritmetic operator is static, thus we change the value
 //#5 : calculate temporary target
-//#6 : look is temporary target is change the sign then calculate new target and temporary target.
+//#6 : look if temporary target's the sign changed then calculate new target and temporary target.
 //#7 : mark the index in result array
 //#8 : repeat the process new target value.
 
